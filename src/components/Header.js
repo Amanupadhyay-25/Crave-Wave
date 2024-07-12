@@ -8,7 +8,7 @@ const Header=()=>{
  
 //If we dont pass any dependency array in useEffect then it would render every time as state chnages   
 //If dependency array is empty => []=> useEffect array is called on Initial render(just once)
-//If dependency array is [reactbtn]=>useEffect array is called evrytime when reactbtn is updated  
+//If dependency array ok is [reactbtn]=>useEffect array is called evrytime when reactbtn is updated  
     useEffect(()=>{
       console.log("useEffect Render")
     },[]);
