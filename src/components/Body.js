@@ -24,9 +24,6 @@ const Body=(props)=>{
     );
 
     const json = await data.json();
-    // console.log(json);
-
-    console.log(json.data.success.cards[0]?.gridWidget?.gridElements?.infoWithStyle.restaurants);
  
     // Optional Chaining
     setListOfRestaurant(
