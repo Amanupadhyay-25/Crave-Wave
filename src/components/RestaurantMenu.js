@@ -1,30 +1,19 @@
 import { useEffect, useState } from "react"
 import Shimmer from "./Shimmer";
-import { MENU_API } from "../utils/constants";
+import useRestaurantMenu from "../utils/useRestaurantmenu";
 import { useParams } from "react-router-dom";
 
 const RestaurantMenu=()=>{
-
-    const [resInfo,setresInfo]=useState(null);
-
-    const {resId}=useParams();
-
- useEffect(()=>{
-  fetchMenu();
- },[]);
-
-const fetchMenu = async()=>{
-  const data = await fetch (MENU_API + resId);
-
-  const json=await data.json();
-  console.log(json);
-  setresInfo(json.data);
-};
+  const {resId}=useParams();
+  const resInfo=useRestaurantMenu(resId); //kalajadu karega
 
 if(resInfo===null) return <Shimmer/>
 
-const {name,cuisines,costForTwoMessage}=resInfo?.cards[2]?.card?.card?.info;
-const {itemCards}=resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
+const {name,cuisines,costForTwoMessage}=
+resInfo?.cards[2]?.card?.card?.info;
+
+const {itemCards}=
+resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
 
 console.log(itemCards);
 

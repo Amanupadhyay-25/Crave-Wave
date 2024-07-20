@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useonlineStatus";
 
 
 
@@ -34,6 +35,15 @@ const Body=(props)=>{
       json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
     );
   };
+
+  const onlineStatus=useOnlineStatus();
+    
+  if(onlineStatus===false)
+     return(
+  <h1>
+    Heyy gunnnu !! Apna net toh on karlo !! 😍
+    </h1>
+    );
 
    return listOfRestaurants.length === 0?<Shimmer/>:(
         <div className="body">
