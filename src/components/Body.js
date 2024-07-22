@@ -34,10 +34,10 @@ const Body=(props)=>{
  
     // Optional Chaining
     setListOfRestaurant(
-      json?.data?.success?.cards[2]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
     );
     setfilteredRestaurant( 
-      json?.data?.success?.cards[2]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
