@@ -1,21 +1,21 @@
 const Shimmer=()=>{
     return(
-    <div className="shimmer-container">
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
-    <div className="shimmer-card">Cards</div>
+    <div className="flex flex-wrap">
+    <div className="w-40 h-60 m-5 bg-pink-300 "></div>
+    <div className="w-40 h-60 m-5 bg-pink-300 "></div>
+    <div className="w-40 h-70 m-5 bg-pink-300"></div>
+    <div className="w-40 h-70 m-5 bg-pink-300 "></div>
+    <div className="w-40 h-70 m-5 bg-pink-300"></div>
+    <div className="w-40 h-60 m-5 bg-pink-300"></div>
+    <div className="w-40 h-60 m-5 bg-pink-300"></div>
+    <div className="w-40 h-70 m-5 bg-pink-300"></div>
+    <div className="w-40 h-70 m-5 bg-pink-300"></div>
+    <div className="w-40 h-60 m-5 bg-pink-300"></div>
+    <div className="w-40 h-70 m-5 bg-pink-300"></div>
+    <div className="w-40 h-60 m-5 bg-pink-300"></div>
+    <div className="w-40 h-70 m-5 bg-pink-300"></div>
+    <div className="w-40 h-70 m-5 bg-pink-300"></div>
+    <div className="w-40 h-70 m-5 bg-pink-300"></div>
     </div>
     )
 };

@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard ,{withPromotedLabel}from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -11,8 +11,12 @@ const Body=(props)=>{
   const [listOfRestaurants,setListOfRestaurant]=useState([]);
   const [filteredRestaurant,setfilteredRestaurant]=useState([]);
 
+  console.log(listOfRestaurants);
+
 
   const [searchText,setsearchText]=useState("");
+
+  const RestaurantCardPromoted=withPromotedLabel(RestaurantCard);
 
 
   useEffect(()=>{
@@ -22,17 +26,18 @@ const Body=(props)=>{
 
   const fetchData = async () => {
     const data = await fetch(
-     "https://www.swiggy.com/mapi/homepage/getCards?lat=28.7108889&lng=77.2144538"
+     "https://www.swiggy.com/mapi/homepage/getCards?lat=28.6790687&lng=77.4992424"
     );
 
     const json = await data.json();
+    console.log(json);
  
     // Optional Chaining
     setListOfRestaurant(
-      json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.success?.cards[2]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
     );
     setfilteredRestaurant( 
-      json?.data?.success?.cards[1]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
+      json?.data?.success?.cards[2]?.gridWidget?.gridElements?.infoWithStyle?.restaurants
     );
   };
 
@@ -47,9 +52,10 @@ const Body=(props)=>{
 
    return listOfRestaurants.length === 0?<Shimmer/>:(
         <div className="body">
-        <div className="filter">
-        <div className="search" >
+        <div className="filter flex">
+        <div className="search m-4 p-4" >
         <input 
+        className="border border-solid border-black "
           type="text"
           value={searchText}
           onChange={(e)=>{
@@ -57,6 +63,7 @@ const Body=(props)=>{
           }}
         />
         <button
+        className="px-4 py-1 bg-green-200 m-4 rounded-lg"
          onClick={()=>{
           const filteredRestaurant=listOfRestaurants.filter((res)=>{
             return  res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -65,7 +72,8 @@ const Body=(props)=>{
          }}
         >Search</button> 
         </div> 
-         < button className="filter-btn"
+        <div className="search m-4 p-4 flex items-center ">
+         < button className="px-4 py-2 bg-gray-400 rounded-lg"
          onClick={()=>{
           const filteredlist =listOfRestaurants.filter((res)=>
             res.info.avgRating>3.8
@@ -74,13 +82,19 @@ const Body=(props)=>{
          }}>
           Top-Rated Restaurant
           </button>
+          </div>
          </div>
-        <div className="res-container">
+        <div className="flex flex-wrap">
         {filteredRestaurant.map((restaurant)=>(
             <Link 
             key={restaurant.info.id}
             to={"/restaurants/"+restaurant.info.id}>
-            <RestaurantCard  resData={restaurant}/></Link>
+             { 
+             //check id prototed true then add it in and enhance RestaurantCard otherwise print card without promoted label 
+              restaurant.info.promoted? <RestaurantCardPromoted  resData={restaurant} 
+              />:<RestaurantCard  resData={restaurant}/>
+             } 
+            </Link>
           ))}
         </div>
         </div>
