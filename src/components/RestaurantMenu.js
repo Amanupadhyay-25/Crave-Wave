@@ -8,6 +8,8 @@ const RestaurantMenu=()=>{
   const {resId}=useParams();
   const resInfo=useRestaurantMenu(resId); //kalajadu karega
 
+  const [showIndex,setShowIndex]=useState(null);
+
 if(resInfo===null) return <Shimmer/>
 
 const {name,cuisines,costForTwoMessage}=
@@ -31,8 +33,13 @@ const categories= resInfo?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards.f
           {cuisines.join(", ")}-{costForTwoMessage}
           </p>
           {/* categories accordian */}
-          {categories.map((category)=>(
-            <RestaurantCategory data={category?.card?.card}/>
+          {categories.map((category,index)=>(
+            //controlled components
+            <RestaurantCategory key={category?.card?.card?.title}
+             data={category?.card?.card}
+             showItems={index===showIndex?true:false}
+             setShowIndex={()=>setShowIndex(index)} //yaha pe index ka acha role hai because yahi toh hai jo index batayega ki kaun se wale pe click kiye ho 
+             />
           ))}
         </div>
     );

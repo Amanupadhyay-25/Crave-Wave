@@ -1,8 +1,11 @@
 import { CDN_URL } from "../utils/constants";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 
 const RestaurantCard = (props) => {
 
+ const {loggedInUser} = useContext(UserContext); //Here using Contex API
 
     const {resData} = props;
   
@@ -30,6 +33,7 @@ const RestaurantCard = (props) => {
          <h4>{avgRating} stars</h4>
          <h4>{costForTwo} FOR TWO</h4>
          <h4>{sla?.slaString} minutes</h4>
+         <h4>{loggedInUser}</h4>
         </div>
       );
     };
