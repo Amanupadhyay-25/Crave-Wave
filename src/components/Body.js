@@ -44,6 +44,7 @@ const Body=(props)=>{
     );
   };
 
+
   const onlineStatus=useOnlineStatus();
     
   if(onlineStatus===false)
@@ -53,7 +54,7 @@ const Body=(props)=>{
     </h1>
     );
 
-   return listOfRestaurants.length === 0?<Shimmer/>:(
+   return filteredRestaurant.length === 0?<Shimmer/>:(
         <div className="body">
         <div className="filter flex">
         <div className="search m-4 p-4" >
