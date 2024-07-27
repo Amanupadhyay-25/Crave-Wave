@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Shimmer from "./Shimmer";
+import Simmermenucards from "./ShimmermenuCard";
 import useRestaurantMenu from "../utils/useRestaurantmenu";
 import { useParams } from "react-router-dom";
 import RestaurantCategory from "./RestaurantCategory";
@@ -10,7 +10,7 @@ const RestaurantMenu=()=>{
 
   const [showIndex,setShowIndex]=useState(null);
 
-if(resInfo===null) return <Shimmer/>
+if(resInfo===null) return <Simmermenucards/>
 
 const {name,cuisines,costForTwoMessage}=
 resInfo?.cards[2]?.card?.card?.info;

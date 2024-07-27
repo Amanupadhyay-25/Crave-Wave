@@ -6,6 +6,7 @@ import About from "./components/About";
 import Cart from "./components/Cart";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import Footer from "./components/Footer";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import UserContext from "./utils/UserContext";
@@ -28,7 +29,7 @@ const AppLayout = () => {
   useEffect(() => {
     // Make an API call and send a username and password
     const data = {
-      name: "Aman"
+      name: ""
     };
     setUserName(data.name);
   }, []);
@@ -40,6 +41,9 @@ const AppLayout = () => {
         <Header />
         <Outlet />
       </div>
+      <div >
+          <Footer />
+        </div>
     </UserContext.Provider>
     </Provider>
   );

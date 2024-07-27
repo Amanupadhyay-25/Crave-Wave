@@ -11,11 +11,10 @@ const Body=(props)=>{
 
   const [listOfRestaurants,setListOfRestaurant]=useState([]);
   const [filteredRestaurant,setfilteredRestaurant]=useState([]);
+  const [searchText,setsearchText]=useState("");
 
   // console.log(listOfRestaurants);
 
-
-  const [searchText,setsearchText]=useState("");
 
   const RestaurantCardPromoted=withPromotedLabel(RestaurantCard);
 
@@ -45,29 +44,34 @@ const Body=(props)=>{
   };
 
 
-  const onlineStatus=useOnlineStatus();
+  const onlineStatus=useOnlineStatus(true);
     
-  if(onlineStatus===false)
+  if(!onlineStatus)
      return(
-  <h1>
-    Heyy gunnnu !! Apna net toh on karlo !! 😍
-    </h1>
+      <div className="w-3/4 m-auto rounded-2xl shadow-2xl shadow-gray-300 text-center mt-12 p-10 text-2xl font-semibold bg-yellow-50 ">
+      <h2> 🔴 Offline, please check your internet connection!! </h2>
+       </div>
     );
 
    return filteredRestaurant.length === 0?<Shimmer/>:(
         <div className="body">
         <div className="filter flex">
-        <div className="search m-4 p-4" >
+
+         {/* input section  */}
+        <div className=" flex  gap-5 mx-10 min-[300px]:justify-center  min-[300px]:flex-wrap " >
         <input 
-        className="border border-solid border-black "
-          type="text"
+       type="search"
+       className="bg-gray-100 outline-none p-1 px-16 rounded-md text-green-700 min-[300px]:w-60  "
+       placeholder="Search items..."
           value={searchText}
           onChange={(e)=>{
               setsearchText(e.target.value);
           }}
         />
+
         <button
-        className="px-4 py-1 bg-green-200 m-4 rounded-lg"
+        data-testid="search-btn"
+              className=" bg-green-500  rounded-md p-2 text-white xl:p-2 xl:px-4   lg:p-0 lg:px-3  min-[320px]:px-4 min-[320px]:p-1"
          onClick={()=>{
           const filteredRestaurant=listOfRestaurants.filter((res)=>{
             return  res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -75,29 +79,40 @@ const Body=(props)=>{
           setfilteredRestaurant(filteredRestaurant);
          }}
         >Search</button> 
-        </div> 
-        <div className="search m-4 p-4 flex items-center ">
-         < button className="px-4 py-2 bg-gray-400 rounded-lg"
-         onClick={()=>{
-          const filteredlist =listOfRestaurants.filter((res)=>
-            res.info.avgRating>3.8
-          )
-          setListOfRestaurant(filteredlist);
-         }}>
-          Top-Rated Restaurant
-          </button>
-          </div>
-          <div className="search m-4 px-2 flex items-center">
-            <label>UserName:</label>
-            <input className="border border-black" 
-            value={loggedInUser}
-            onChange={(e)=>{
-              setUserName(e.target.value)
-            }}
-             />
-         </div>
-         </div>
-        <div className="flex flex-wrap">
+      </div> 
+
+     <div className="flex mx-5 gap-10  ">
+      <button
+        className=" py-1  bg-green-500  rounded-md text-white xl:p-2 xl:px-4  lg:p-1 lg:px-2 min-[320px]:p-1 "
+              onClick={() => {
+                const filteredlist = listOfRestaurants.filter(
+                  (res) => res.info.avgRating < 3.0
+                );
+
+                setfilteredRestaurant(filteredlist);
+              }}
+            >
+              3 ⭐ Rating
+        </button>
+
+        <button
+              className=" p-2  bg-green-500  rounded-md text-white xl:p-2 xl:px-4  lg:p-1 lg:px-2 min-[320px]:p-1 "
+              onClick={() => {
+                const filteredlist = listOfRestaurants.filter(
+                  (res) => res.info.avgRating > 4.0
+                );
+
+                setfilteredRestaurant(filteredlist);
+              }}
+            >
+              4 ⭐ Rating
+        </button>
+      </div>      
+      </div>
+
+      <div 
+        className="flex flex-wrap gap-2 justify-center "
+        >
         {filteredRestaurant.map((restaurant)=>(
             <Link 
             key={restaurant.info.id}
@@ -110,7 +125,7 @@ const Body=(props)=>{
             </Link>
           ))}
         </div>
-        </div>
+      </div>
     );
 };
 

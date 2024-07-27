@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Shimmer = () => {
+const Simmeruicards = () => {
   return (
     <>
 
@@ -37,4 +37,4 @@ const Shimmer = () => {
 
 
 
-export default Shimmer;
+export default Simmeruicards;

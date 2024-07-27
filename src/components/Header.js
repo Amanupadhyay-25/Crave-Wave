@@ -26,22 +26,35 @@ const Header=()=>{
     },[]);
 
     return(
-        <div className="flex justify-between bg-pink-100 shadow-lg ">
-            <div className="logo-container">
-                <img 
-                className="w-56"
-                src={LOGO_URL} />
-            </div>
-            <div className="flex items-center ">
+        <div className="flex sticky z-50 top-0  justify-between bg-yellow-300 text-black text-base    lg:justify-between 
+        md:justify-between  md:flex-wrap sm:flex-wrap md:items-center sm:justify-center min-[425px]:flex-wrap min-[425px]:justify-center  min-[375px]:justify-center
+        min-[375px]:flex-wrap  min-[320px]:flex-wrap  min-[320px]:justify-center
+    
+        shadow-lg  mb-4 text-center   items-center">
+
+             <div >
+        {/* logo  */}
+        <Link to="/"> <img data-testid=" logo " className="h-20 mx-10     cursor-pointer" src={LOGO_URL} /></Link>
+        </div>
+
+            <div>
                 <ul className="flex p-4 m-4 ">
-                    <li className="px-4">Online Status:{onlineStatus?"🟢":"🔴"}</li>
-                   <li className="px-4"><Link to="/">Home</Link></li>
-                   <li className="px-4"><Link to="/about">About Us</Link></li>
-                   <li className="px-4"><Link to="/contact">Contact Us</Link></li>
-                   <li className="px-4"><Link to="/grocery">Grocery</Link></li>
-                   <li className="px-4 font-bold text-xl"><Link to="/cart">Cart({cartItems.length})</Link></li>
-                   <li className="px-4">Login</li>
-                   <button className="px-4"
+                    <li className="px-4">
+                        Online Status:{onlineStatus?"🟢":"🔴"}
+                    </li>
+                   <li className="px-4 hover:text-red-400">
+                    <Link to="/">Home</Link>
+                    </li>
+                   <li className="px-4">
+                    <Link to="/about">About Us</Link>
+                    </li>
+                   <li className="px-4">
+                    <Link to="/contact">Contact Us</Link>
+                    </li>
+                   <li className="px-4 font-bold text-xl">
+                    <Link to="/cart">Cart({cartItems.length})</Link>
+                    </li>
+                   <button className=" p-2  bg-green-500  lg:p-2 lg:px-4 rounded-md text-white "
                    type="text"
                    value={reactbtn}
                    onClick={()=>{
