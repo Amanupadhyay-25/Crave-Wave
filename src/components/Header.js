@@ -4,6 +4,8 @@ import {Link} from "react-router-dom"
 import useOnlineStatus from "../utils/useonlineStatus";
 import UserContext from "../utils/UserContext";
 import { useSelector } from "react-redux";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart,faHome, faEnvelope, faCircle , faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 
 const Header=()=>{
@@ -40,19 +42,27 @@ const Header=()=>{
             <div>
                 <ul className="flex p-4 m-4 ">
                     <li className="px-4">
-                        Online Status:{onlineStatus?"🟢":"🔴"}
+                    <FontAwesomeIcon icon={faCircle} className={onlineStatus ? 'text-green-500' : 'text-gray-500'} /> {onlineStatus ? 'Online' : 'Offline'}
                     </li>
                    <li className="px-4 hover:text-red-400">
-                    <Link to="/">Home</Link>
+                    <Link to="/">
+                    <FontAwesomeIcon icon={faHome} /> Home
+                    </Link>
                     </li>
                    <li className="px-4">
-                    <Link to="/about">About Us</Link>
+                    <Link to="/about">
+                    <FontAwesomeIcon icon={faInfoCircle} /> About Us
+                    </Link>
                     </li>
                    <li className="px-4">
-                    <Link to="/contact">Contact Us</Link>
+                    <Link to="/contact">
+                    <FontAwesomeIcon icon={faEnvelope} /> Contact Us
+                    </Link>
                     </li>
                    <li className="px-4 font-bold text-xl">
-                    <Link to="/cart">Cart({cartItems.length})</Link>
+                    <Link to="/cart">
+                    <FontAwesomeIcon icon={faShoppingCart}/>{cartItems.length}
+                    </Link>
                     </li>
                    <button className=" p-2  bg-green-500  lg:p-2 lg:px-4 rounded-md text-white "
                    type="text"
