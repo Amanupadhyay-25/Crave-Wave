@@ -54,8 +54,23 @@ const Body=(props)=>{
     );
 
    return filteredRestaurant.length === 0?<Shimmer/>:(
-        <div className="body">
-        <div className="filter flex">
+    <>
+      <div className="  shadow-2xl mb-10  m-auto rounded-2xl">
+        <br></br>
+        {/*  tailwind css for body component with responsiveness */}
+        <div
+          className="  flex justify-between  items-center  rounded-2xl mx-5 m-auto   
+         xl:gap-0 xl:px-10 lg:gap-2 lg:px-10 lg:py-5 md:justify-center md:flex-wrap md:gap-2 sm:py-2 md:p-1   sm:flex-wrap sm:justify-center
+           min-[300px]:flex-wrap min-[300px]:justify-center  min-[300px]:py-2 min-[300px]:gap-4
+       shadow-lg text-center gap-5 bg-gray-100"
+        >
+
+        <div className="font-bold text-xl text-orange-600   lg:font-bold lg:text-base  ">
+            <h2 className="text-lg">
+              <span className="text-green-500 lg:px-2 text-2xl">Welcome to</span>
+              Crave Wave
+            </h2>
+          </div>
 
          {/* input section  */}
         <div className=" flex  gap-5 mx-10 min-[300px]:justify-center  min-[300px]:flex-wrap " >
@@ -71,7 +86,7 @@ const Body=(props)=>{
 
         <button
         data-testid="search-btn"
-              className=" bg-green-500  rounded-md p-2 text-white xl:p-2 xl:px-4   lg:p-0 lg:px-3  min-[320px]:px-4 min-[320px]:p-1"
+              className=" bg-green-500  rounded-md p-2 text-white xl:p-2 xl:px-4  font-bold lg:p-0 lg:px-3  min-[320px]:px-4 min-[320px]:p-1"
          onClick={()=>{
           const filteredRestaurant=listOfRestaurants.filter((res)=>{
             return  res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -126,6 +141,7 @@ const Body=(props)=>{
           ))}
         </div>
       </div>
+    </>
     );
 };
 

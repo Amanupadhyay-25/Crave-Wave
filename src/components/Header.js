@@ -41,20 +41,20 @@ const Header=()=>{
 
             <div>
                 <ul className="flex p-4 m-4 ">
-                    <li className="px-4">
+                    <li className="px-4 text-xl">
                     <FontAwesomeIcon icon={faCircle} className={onlineStatus ? 'text-green-500' : 'text-gray-500'} /> {onlineStatus ? 'Online' : 'Offline'}
                     </li>
-                   <li className="px-4 hover:text-red-400">
+                   <li className="px-4 text-xl">
                     <Link to="/">
                     <FontAwesomeIcon icon={faHome} /> Home
                     </Link>
                     </li>
-                   <li className="px-4">
+                   <li className="px-4 text-xl">
                     <Link to="/about">
                     <FontAwesomeIcon icon={faInfoCircle} /> About Us
                     </Link>
                     </li>
-                   <li className="px-4">
+                   <li className="px-4 text-xl">
                     <Link to="/contact">
                     <FontAwesomeIcon icon={faEnvelope} /> Contact Us
                     </Link>
@@ -64,7 +64,7 @@ const Header=()=>{
                     <FontAwesomeIcon icon={faShoppingCart}/>{cartItems.length}
                     </Link>
                     </li>
-                   <button className=" p-2  bg-green-500  lg:p-2 lg:px-4 rounded-md text-white "
+                   <button className=" p-2  bg-green-500  lg:p-2 lg:px-4 rounded-md text-white font-bold "
                    type="text"
                    value={reactbtn}
                    onClick={()=>{

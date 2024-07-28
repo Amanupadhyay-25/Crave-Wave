@@ -21,7 +21,6 @@ import {Provider} from "react-redux";
 // On-demand loading
 // Dynamic import
 
-const Grocery = lazy(() => import("./components/Grocery"));
 
 const AppLayout = () => {
   const [userName, setUserName] = useState("");
@@ -70,14 +69,6 @@ const appRouter = createBrowserRouter([
       {
         path:"/cart",
         element:<Cart/>
-      },
-      {
-        path: "/grocery",
-        element: (
-          <Suspense fallback={<h1>Loading...</h1>}>
-            <Grocery />
-          </Suspense>
-        ),
       },
       {
         path: "/restaurants/:resId",
