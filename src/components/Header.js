@@ -28,7 +28,7 @@ const Header=()=>{
     },[]);
 
     return(
-        <div className="flex sticky z-50 top-0  justify-between bg-yellow-300 text-black text-base    lg:justify-between 
+        <div className="flex sticky z-50 top-0  justify-between bg-white text-black text-base    lg:justify-between 
         md:justify-between  md:flex-wrap sm:flex-wrap md:items-center sm:justify-center min-[425px]:flex-wrap min-[425px]:justify-center  min-[375px]:justify-center
         min-[375px]:flex-wrap  min-[320px]:flex-wrap  min-[320px]:justify-center
     
@@ -36,7 +36,7 @@ const Header=()=>{
 
              <div >
         {/* logo  */}
-        <Link to="/"> <img data-testid=" logo " className="h-20 mx-10     cursor-pointer" src={LOGO_URL} /></Link>
+        <Link to="/"> <img data-testid=" logo " className="h-20 mx-10   cursor-pointer" src={LOGO_URL} /></Link>
         </div>
 
             <div>
