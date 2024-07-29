@@ -45,7 +45,6 @@ const ItemList=({items})=>{
               >
                 ADD +</button>
               </div>
-             
         </div>
     ))}
       </div>
