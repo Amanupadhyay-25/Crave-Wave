@@ -1,5 +1,5 @@
 import { useEffect, useState,useContext } from "react";
-import { LOGO_URL } from "../utils/constants";
+import { APP_URL} from "../utils/constants";
 import {Link} from "react-router-dom"
 import useOnlineStatus from "../utils/useonlineStatus";
 import UserContext from "../utils/UserContext";
@@ -36,7 +36,7 @@ const Header=()=>{
 
              <div >
         {/* logo  */}
-        <Link to="/"> <img data-testid=" logo " className="h-20 mx-10   cursor-pointer" src={LOGO_URL} /></Link>
+        <Link to="/"> <img data-testid=" logo " className="h-20 mx-10   cursor-pointer" src={APP_URL} /></Link>
         </div>
 
             <div>
@@ -44,27 +44,27 @@ const Header=()=>{
                     <li className="px-4 text-xl">
                     <FontAwesomeIcon icon={faCircle} className={onlineStatus ? 'text-green-500' : 'text-gray-500'} /> {onlineStatus ? 'Online' : 'Offline'}
                     </li>
-                   <li className="px-4 text-xl">
+                   <li className="px-4 text-xl hover:text-red-900">
                     <Link to="/">
                     <FontAwesomeIcon icon={faHome} /> Home
                     </Link>
                     </li>
-                   <li className="px-4 text-xl">
+                   <li className="px-4 text-xl hover:text-red-900">
                     <Link to="/about">
                     <FontAwesomeIcon icon={faInfoCircle} /> About Us
                     </Link>
                     </li>
-                   <li className="px-4 text-xl">
+                   <li className="px-4 text-xl hover:text-red-900">
                     <Link to="/contact">
                     <FontAwesomeIcon icon={faEnvelope} /> Contact Us
                     </Link>
                     </li>
-                   <li className="px-4 font-bold text-xl">
+                   <li className="px-4 font-bold text-xl hover:text-red-900">
                     <Link to="/cart">
                     <FontAwesomeIcon icon={faShoppingCart}/>{cartItems.length}
                     </Link>
                     </li>
-                   <button className=" p-2  bg-green-500  lg:p-2 lg:px-4 rounded-md text-white font-bold "
+                   <button className=" p-2  bg-green-500  lg:p-2 lg:px-4 rounded-md text-white font-bold hover:bg-gray-800 "
                    type="text"
                    value={reactbtn}
                    onClick={()=>{
