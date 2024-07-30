@@ -5,11 +5,10 @@ import { APP_URL } from '../utils/constants';
 const About = () => {
   return (
     <div>
-      <h2 className='font-bold text-green-600 text-2xl mt-10 mb-10 text-center'>
-        About <span className='text-red-500'>Us</span>
-      </h2>
-      
-      <div className='flex justify-around text-center items-center mt-24 mb-28 m-auto w-3/4 lg:w-auto lg:px-5 md:w-auto md:px-4 sm:w-auto sm:px-3 min-[320px]:w-auto min-[320px]:px-2 sm:flex-row min-[320px]:flex-col'>
+      <h2 className='font-extrabold text-4xl mt-10 mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-blue-500'>
+  About <span className='text-red-500 decoration-wavy decoration-2'>Us</span>
+</h2>
+<div className='flex justify-around text-center items-center mt-24 mb-28 m-auto w-3/4 lg:w-auto lg:px-5 md:w-auto md:px-4 sm:w-auto sm:px-3 min-[320px]:w-auto min-[320px]:px-2 sm:flex-row min-[320px]:flex-col'>
         <div className='text-green-500 mt-10 w-[60%] md:w-[60%] sm:w-[70%] min-[320px]:w-[100%] mb-10'>
           <h3 className='text-6xl lg:text-5xl sm:text-3xl min-[320px]:text-2xl mb-5 font-bold'>
             Welcome to <span className='text-red-400'>Crave Wave</span>
